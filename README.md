@@ -42,7 +42,7 @@ Como o projeto está conteinerizado, subi-lo na sua máquina é um processo de a
 
 1. Clone este repositório:
    ```
-   git clone [https://github.com/SEU-USUARIO/SyncOps.git](https://github.com/SEU-USUARIO/SyncOps.git)
+   git clone [https://github.com/krl0sEd/SyncOps](https://github.com/krl0sEd/SyncOps)
    
    ```
 
