@@ -72,13 +72,15 @@ docker-compose up -d --build
 
 ---
 
-## 📬 Contato
+## 🤝 O Time
 
-- 💻  **Análise e Desenvolvimento de Sistemas** | Foco em **DevOps & Redes**
-- 📧 **Email**: [cbucazio@gmail.com](mailto:cbucazio@gmail.com)
-- 🌐 **GitHub**: [Krl0sEd](https://github.com/Krl0sEd)
-- 🧑‍💼 **Linkedin**: [linkedin.com/in/carlos-eduardo-de-oliveira-bucazio-516a7937a](https://www.linkedin.com/in/carlos-eduardo-de-oliveira-bucazio-516a7937a)
-
-**✨ Feito com dedicação por Anderson, Carlos Eduardo de Oliveira Bucazio e Pamela Goulart 🚀**
+| Desenvolvedor | Foco | Contato |
+| :--- | :--- | :--- |
+| **Carlos Bucazio** | DevOps & Redes | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/Krl0sEd) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/carlos-eduardo-de-oliveira-bucazio-516a7937a) |
+| **Pamela Goulart** | Full-stack | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/Paamzzz) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pamela-amancio-goulart/) |
+| **Anderson Mesquita** | Full-stack | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/DevAndersonmesquita) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andersonmesquitadev/) |
 
 ---
+<p align="center">
+  ✨ Feito com dedicação por <b>Anderson</b>, <b>Carlos</b> e <b>Pamela</b> 🚀
+</p>
