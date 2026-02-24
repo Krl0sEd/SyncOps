@@ -64,14 +64,6 @@ docker-compose up -d --build
 
 ---
 
-## 👥 Squad (Desenvolvimento e Operações)
-
-* **Anderson:** Front-end
-* **Carlos Bucazio:** Infraestrutura / DevOps
-* **Pamela Goulart:** Front-end
-
----
-
 ## 🤝 O Time
 
 | Desenvolvedor | Foco | Contato |
