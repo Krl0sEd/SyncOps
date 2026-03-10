@@ -140,3 +140,74 @@
        justify-content: space-between;
        color: var(--texto-hierarquia-3);
   }
+
+  /* ============================= */
+  /*    Tags                      */
+  /* ============================= */
+
+  /*----- Nível de prioridade ----- */
+  .tag-alta,
+  .tag-media,
+  .tag-baixa {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     width: 108px;
+     height: 26px;
+     font-size: var(--text-sm);
+     padding: 6px 12px;
+     border-radius: 10px;
+     font-weight: 700;
+     box-sizing: border-box
+  }
+  .tag-icone {
+     width: 14px;
+     flex-shrink: 0;
+     stroke-width: 3.2;
+     overflow: visible;
+  }
+
+  .tag-alta {
+     background-color: var(--prioridade-alta-bg); color: var(--prioridade-alta-texto);
+  }
+
+  .tag-media {
+     background-color: var(--prioridade-media-bg); color: var(--prioridade-media-texto);
+  }
+  .tag-baixa {
+     background-color: var(--prioridade-baixa-bg); color: var(--prioridade-baixa-texto);
+  }
+
+
+    /*----- Status de Andamento ----- */
+  .tag-andamento,
+  .tag-concluido,
+  .tag-nao-iniciada {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     width: 165px;
+     height: 26px;
+     font-size: var(--text-sm);
+     padding: 6px 12px;
+     border-radius: 10px;
+     font-weight: 700;
+     box-sizing: border-box
+  }
+  .tag-icone {
+     width: 14px;
+     flex-shrink: 0;
+     stroke-width: 3.2;
+     overflow: visible;
+  }
+
+  .tag-andamento {
+     background-color: var(--status-andamento-bg); color: var(--status-andamento-texto);
+  }
+
+  .tag-concluido {
+     background-color: var(--status-concluido-bg); color: var(--status-concluido-texto);
+  }
+  .tag-nao-iniciada {
+     background-color: var(--status-nao-iniciado-bg); color: var(--status-nao-iniciado-texto);
+  }
