@@ -13,12 +13,12 @@
      <!-- Fonte -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-</head>
+     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+     </head>
 
 <body>
      <header>
-          <div class="logo-area">
+          <div class="logo-area"> <!-- Em aguardoa logo -->
                <p>
                     <a href="index.html">
                          SyncOps
@@ -28,7 +28,7 @@
 
           <div class="header-acoes">
                <button class="btn-header" id="btn-darkmode" aria-label="Ativar modo escuro">
-                    <svg id="darkmode-icon" width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="darkmode-icon" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                          <path d="M23.1059 3.99986H29M26.0529 1V6.99971M27.5044 15.2283C27.3663 17.8324 26.4901 20.34 24.9818 22.4481C23.4735 24.5561 21.3976 26.1743 19.005 27.107C16.6125 28.0398 14.0058 28.2471 11.5 27.704C8.99413 27.1609 6.6965 25.8906 4.8848 24.0466C3.07309 22.2027 1.82489 19.864 1.29107 17.3134C0.757254 14.7627 0.960674 12.1093 1.87674 9.67381C2.79282 7.23833 4.38232 5.12508 6.4531 3.58953C8.52389 2.05397 10.9873 1.16185 13.5456 1.021C14.1423 0.988 14.4547 1.71097 14.1379 2.22544C13.0783 3.95119 12.6246 5.99156 12.8508 8.01359C13.077 10.0356 13.9698 11.9199 15.3835 13.3589C16.7972 14.798 18.6484 15.7068 20.6348 15.937C22.6213 16.1673 24.6257 15.7055 26.3211 14.6268C26.828 14.3044 27.5368 14.6208 27.5044 15.2283Z"
                               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -36,7 +36,7 @@
                </button>
 
                <button class="btn-header" aria-label="Icone com usuário">
-                    <svg width="33" height="38" viewBox="0 0 33 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="user-icon" viewBox="0 0 33 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                          <path d="M16.5 21C21.8503 21 26.1875 16.5228 26.1875 11C26.1875 5.47715 21.8503 1 16.5 1C11.1497 1 6.8125 5.47715 6.8125 11C6.8125 16.5228 11.1497 21 16.5 21ZM16.5 21C20.6109 21 24.5533 22.6857 27.4602 25.6863C30.367 28.6869 32 32.7565 32 37M16.5 21C12.3891 21 8.44666 22.6857 5.53985 25.6863C2.63303 28.6869 1 32.7565 1 37"
                               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -55,16 +55,15 @@
 
                <div class="card-header-ferramentas">
                     <div class="buscar-wrapper">
-                         <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <svg id="search-icon" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M32 32L24.5256 24.5256M28.5556 14.7778C28.5556 22.387 22.387 28.5556 14.7778 28.5556C7.16852 28.5556 1 22.387 1 14.7778C1 7.16852 7.16852 1 14.7778 1C22.387 1 28.5556 7.16852 28.5556 14.7778Z"
-                                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                          </svg>
-                         <span id="search-text">Pesquisar</span>
-                         <input type="text" id="search-bar">
+                         <input type="text" id="search-bar" placeholder="Pesquisar">
                     </div>
 
                     <nav class="filtro-grupo" aria-label="Filtros de tarefas">
-                         <button class="btn-filtro" id="btn-filtro-tds">Todos</button>
+                         <button class="btn-filtro ativo" id="btn-filtro-tds">Todos</button>
                          <button class="btn-filtro" id="btn-filtro-tds">Concluídos</button>
                          <button class="btn-filtro" id="btn-filtro-tds">Andamento</button>
                     </nav>
