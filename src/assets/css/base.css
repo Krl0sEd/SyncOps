@@ -40,14 +40,15 @@
   /*     STATUS (TAGS)             */
   /* ============================= */
 
+  --status-andamento-texto: #CA7601;
+  --status-andamento-bg: #FFE08D;
+
   --status-concluido-bg: #8FE38F;
-  --status-concluido-texto: #666666;
+  --status-concluido-texto: #017C05;
 
   --status-nao-iniciado-bg: #B9B9B9;
   --status-nao-iniciado-texto: #484848;
 
-  --status-em-andamento-bg: #FFE08D;
-  --status-em-andamento-texto: #CA7601;
 
 
   /* ============================= */
@@ -55,7 +56,7 @@
   /* ============================= */
 
   --prioridade-baixa-bg: #AFA7F8;
-  --prioridade-baixa-texto: #777675;
+  --prioridade-baixa-texto: #312A71;
 
   --prioridade-media-bg: #EDA7F8;
   --prioridade-media-texto: #712A59;
