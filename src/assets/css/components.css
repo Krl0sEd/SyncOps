@@ -146,9 +146,9 @@
   /* ============================= */
 
   /*----- Nível de prioridade ----- */
-  .tag-alta,
-  .tag-media,
-  .tag-baixa {
+ .tag-prioridade.alta,
+ .tag-prioridade.media,
+ .tag-prioridade.baixa {
      display: flex;
      align-items: center;
      gap: 10px;
@@ -167,22 +167,22 @@
      overflow: visible;
   }
 
-  .tag-alta {
+  .alta {
      background-color: var(--prioridade-alta-bg); color: var(--prioridade-alta-texto);
   }
 
-  .tag-media {
+  .media {
      background-color: var(--prioridade-media-bg); color: var(--prioridade-media-texto);
   }
-  .tag-baixa {
+  .baixa {
      background-color: var(--prioridade-baixa-bg); color: var(--prioridade-baixa-texto);
   }
 
 
     /*----- Status de Andamento ----- */
-  .tag-andamento,
-  .tag-concluido,
-  .tag-nao-iniciada {
+  .tag-progresso.andamento,
+  .tag-progresso.concluido,
+  .tag-progresso.nao-iniciada {
      display: flex;
      align-items: center;
      gap: 10px;
@@ -201,13 +201,13 @@
      overflow: visible;
   }
 
-  .tag-andamento {
+  .andamento {
      background-color: var(--status-andamento-bg); color: var(--status-andamento-texto);
   }
 
-  .tag-concluido {
+  .concluido {
      background-color: var(--status-concluido-bg); color: var(--status-concluido-texto);
   }
-  .tag-nao-iniciada {
+  .nao-iniciada {
      background-color: var(--status-nao-iniciado-bg); color: var(--status-nao-iniciado-texto);
   }
