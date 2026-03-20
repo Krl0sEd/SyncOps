@@ -1,10 +1,17 @@
+// * CONTENT LOADED
+document.addEventListener('DOMContentLoaded', renderizarCards);
+
 // * CARDS
 const grid = document.querySelector('#card-grid');
 
 function renderizarCards() { //Mostra todos os cards no grid
-     checklists = getAllChecklists();
-     checklists.forEach((checklist) => {
+     let checklists = getAllChecklists(); // Toda vez que tiver conteúdo novo, ela receberá um novo valor
 
+     checklists.forEach((checklist) => {
+          let statusAtual = null; // criou ele fora, para dentro das funções ele apenas receber o valor para não repetir sempre o "let"
+          let prioridadeAtual = null; //mesma lógica do de cima
+
+          // ? Verificações do Status
           if (checklist.status === 'andamento') {
                statusAtual = `<div class="tag-andamento">
           <svg class="tag-icone" viewBox="0 0 31 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,15 +45,51 @@ function renderizarCards() { //Mostra todos os cards no grid
     </div>
            `
           };
-     
 
+          // ? Verificações da Prioridade
 
-     grid.innerHTML =+ `
+          if (checklist.priority === 'baixa') {
+               prioridadeAtual = `
+               <div class="tag-baixa">
+          <svg class="tag-icone" viewBox="0 0 29 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M0.600098 31.6V3.69998C0.600098 3.45935 0.661092 3.22202 0.778252 3.00679C0.895411 2.79157 1.06552 2.60435 1.2751 2.45998C3.0277 1.25263 5.15935 0.599976 7.3501 0.599976C12.4126 0.599976 15.7876 3.69998 19.7245 3.69998C21.9745 3.69998 23.6997 3.28664 24.9001 2.45998C25.1508 2.28726 25.4489 2.18209 25.7611 2.15624C26.0732 2.13039 26.387 2.18488 26.6673 2.31361C26.9476 2.44235 27.1833 2.64023 27.3481 2.88509C27.5128 3.12996 27.6001 3.41212 27.6001 3.69998V19.2C27.6001 19.4406 27.5391 19.6779 27.4219 19.8932C27.3048 20.1084 27.1347 20.2956 26.9251 20.44C25.1725 21.6473 23.0408 22.3 20.8501 22.3C15.7876 22.3 12.4126 19.2 7.3501 19.2C4.85955 19.2 2.45639 20.0432 0.600098 21.5684" 
+              stroke="currentColor"  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="tag-texto">Baixa</span>
+     </div>
+               `
+          } else if (checklist.priority === 'media') {
+               prioridadeAtual = `
+                <div class="tag-media">
+          <svg class="tag-icone" viewBox="0 0 29 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M0.600098 31.6V3.69998C0.600098 3.45935 0.661092 3.22202 0.778252 3.00679C0.895411 2.79157 1.06552 2.60435 1.2751 2.45998C3.0277 1.25263 5.15935 0.599976 7.3501 0.599976C12.4126 0.599976 15.7876 3.69998 19.7245 3.69998C21.9745 3.69998 23.6997 3.28664 24.9001 2.45998C25.1508 2.28726 25.4489 2.18209 25.7611 2.15624C26.0732 2.13039 26.387 2.18488 26.6673 2.31361C26.9476 2.44235 27.1833 2.64023 27.3481 2.88509C27.5128 3.12996 27.6001 3.41212 27.6001 3.69998V19.2C27.6001 19.4406 27.5391 19.6779 27.4219 19.8932C27.3048 20.1084 27.1347 20.2956 26.9251 20.44C25.1725 21.6473 23.0408 22.3 20.8501 22.3C15.7876 22.3 12.4126 19.2 7.3501 19.2C4.85955 19.2 2.45639 20.0432 0.600098 21.5684" 
+              stroke="currentColor"  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <span class="tag-texto">Média</span>
+    </div>
+               `
+          } else {
+               prioridadeAtual = `
+                <div class="tag-alta">
+          <svg class="tag-icone" viewBox="0 0 29 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M0.600098 31.6V3.69998C0.600098 3.45935 0.661092 3.22202 0.778252 3.00679C0.895411 2.79157 1.06552 2.60435 1.2751 2.45998C3.0277 1.25263 5.15935 0.599976 7.3501 0.599976C12.4126 0.599976 15.7876 3.69998 19.7245 3.69998C21.9745 3.69998 23.6997 3.28664 24.9001 2.45998C25.1508 2.28726 25.4489 2.18209 25.7611 2.15624C26.0732 2.13039 26.387 2.18488 26.6673 2.31361C26.9476 2.44235 27.1833 2.64023 27.3481 2.88509C27.5128 3.12996 27.6001 3.41212 27.6001 3.69998V19.2C27.6001 19.4406 27.5391 19.6779 27.4219 19.8932C27.3048 20.1084 27.1347 20.2956 26.9251 20.44C25.1725 21.6473 23.0408 22.3 20.8501 22.3C15.7876 22.3 12.4126 19.2 7.3501 19.2C4.85955 19.2 2.45639 20.0432 0.600098 21.5684" 
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <span class="tag-texto">Alta</span>
+    </div>
+               `
+          }
+
+          // aqui exibe, de fato, cada car no Grid.
+          grid.innerHTML += `
           <article class="card">
           <div class="card-content">
                <div class="card-superior">
                     <h3 class="card-titulo">${checklist.title}</h3>
                     <div class="tag">${statusAtual}</div> 
+                    <div class="prioridade">${prioridadeAtual}</div> 
                </div>
                <div class="card-inferior">
                     <div class="barra-progresso" ${checklist.progress}></div> 
