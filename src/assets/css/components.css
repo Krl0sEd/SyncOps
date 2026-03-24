@@ -112,6 +112,8 @@
        background-color: var(--botao-claro-bg);
        /* box-shadow: 0px 2px 10px rgba(24, 1, 47, 0.212); */
        border-radius: 5%;
+       outline: transparent;
+       transition: all 0.3s;
   }
 
   .card-content {
@@ -147,6 +149,13 @@
        justify-content: space-between;
        color: var(--texto-hierarquia-3);
   }
+
+  /* * Hover */
+  .card:hover {
+     box-shadow: var(--cor-gradiente) 10px 10px 50px;
+     outline: 3px solid var(--cor-gradiente);
+  }
+
 
   /* ============================= */
   /*    Tags                      */
