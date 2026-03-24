@@ -13,7 +13,7 @@ function renderizarCards() { //Mostra todos os cards no grid
 
           // ? Verificações do Status
           if (checklist.status === 'andamento') {
-               statusAtual = `<div class="tag-progesso andamento">
+               statusAtual = `<div class="tag-progresso andamento">
           <svg class="tag-icone" viewBox="0 0 31 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path d="M15.5 1V7.6M21.59 10.57L25.795 5.785M24.2 17.5H30M21.59 24.43L25.795 29.215M15.5 27.4V34M5.205 29.215L9.41 24.43M1 17.5H6.8M5.205 5.785L9.41 10.57"
                   stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
@@ -34,7 +34,7 @@ function renderizarCards() { //Mostra todos os cards no grid
     </div>`
           } else {
                statusAtual = `
-                <div class="tag-progesso nao-iniciada">
+                <div class="tag-progresso nao-iniciada">
           <svg class="tag-icone" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path d="M4.66125 4.66125L22.3375 22.3387M26 13.5C26 20.4036 20.4036 26 13.5 26C6.59644 26 1 20.4036 1 13.5C1 6.59644 6.59644 1 13.5 1C20.4036 1 26 6.59644 26 13.5Z"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -82,14 +82,16 @@ function renderizarCards() { //Mostra todos os cards no grid
                `
           }
 
-          // aqui exibe, de fato, cada car no Grid.
+          // aqui exibe, de fato, cada card no Grid.
           grid.innerHTML += `
           <article class="card">
           <div class="card-content">
                <div class="card-superior">
                     <h3 class="card-titulo">${checklist.title}</h3>
-                    <div class="tag-progresso">${statusAtual}</div> 
-                    <div class="tag-prioridade">${prioridadeAtual}</div> 
+                    <div class="card-status">
+                         <div class="tag-progrresso">${statusAtual}</div> 
+                         <div class="tag-prioridade">${prioridadeAtual}</div> 
+                    </div>
                </div>
                <div class="card-inferior">
                     <div class="barra-progresso">
