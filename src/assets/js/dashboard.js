@@ -87,9 +87,16 @@ function renderizarCards() { //Mostra todos os cards no grid
           <article class="card">
           <div class="card-content">
                <div class="card-superior">
-                    <h3 class="card-titulo">${checklist.title}</h3>
+                    <div class="superior-grupo">
+                         <h3 class="card-titulo">${checklist.title}</h3>
+                         <div class="opcoes-icon"> 
+                              <div class="opcoes-circulo"></div>
+                              <div class="opcoes-circulo"></div>
+                              <div class="opcoes-circulo"></div>
+                         </div>
+                    </div>
                     <div class="card-status">
-                         <div class="tag-progrresso">${statusAtual}</div> 
+                         <div class="tag-progresso">${statusAtual}</div> 
                          <div class="tag-prioridade">${prioridadeAtual}</div> 
                     </div>
                </div>

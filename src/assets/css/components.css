@@ -126,6 +126,11 @@
        /* border: 1px solid; */
   }
 
+  .superior-grupo {
+     display: flex;
+     justify-content: space-between;
+  }
+
   .card-titulo {
        font-weight: 900;
        max-width: 300px;
@@ -137,6 +142,22 @@
        font-size: var(--text-xl);
        color: var(--texto-alto-contraste);
   }
+
+  .opcoes-icon {
+display: flex;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  }
+
+.opcoes-circulo {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--texto-hierarquia-3);
+}
 
   .card-status {
      display: flex;
