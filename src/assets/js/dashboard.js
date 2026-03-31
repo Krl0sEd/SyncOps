@@ -1,5 +1,23 @@
-// * CONTENT LOADED
-document.addEventListener('DOMContentLoaded', renderizarCards);
+// // * Abrir submenu
+// function abrirSubmenu() {
+//      const submenu = document.querySelectorAll('.submenu-grupo')
+//      submenu.classList.remove('invisible');
+//      console.log('Ação feita!')
+// };
+
+// let cards = document.querySelectorAll('.card');
+// const opcoesBtn = document.querySelectorAll('.opcoes-icon');
+
+// cards.forEach(card => {
+//      opcoesBtn.forEach(opcoes => {
+//           opcoes.addEventListener('click', function() {
+//                console.log('Ação feita!2');
+//                abrirSubmenu(opcoes);
+//           });
+//      });
+// });
+
+
 
 // * CARDS
 const grid = document.querySelector('#card-grid');
@@ -83,7 +101,7 @@ function renderizarCards() { //Mostra todos os cards no grid
           }
 
           // aqui exibe, de fato, cada card no Grid.
-          grid.innerHTML += `
+          grid.insertAdjacentHTML('beforeend', `
           <article class="card">
           <div class="card-content">
                <div class="card-superior">
@@ -119,5 +137,22 @@ function renderizarCards() { //Mostra todos os cards no grid
                </div>
           </div>
      </article>`
+);
+
+// * submenu
+     const cardAtual = grid.lastElementChild;
+          const idCard = localStorage.setItem(cardAtual,'id');
+          console.log('Id do card atual:' + idCard)
+
+          cardAtual.querySelector('.opcoes-icon').addEventListener('click', function() {
+               cardAtual.querySelector('.submenu-grupo').classList.remove('invisible');
+          });
+
+          document.addEventListener('click', (event) => { //fechar submenu ao clicar fora
+               cardAtual.querySelector('.submenu-grupo').classList.add('invisible');
+          });
      });
 };
+
+// * CONTENT LOADED
+document.addEventListener('DOMContentLoaded', renderizarCards);
