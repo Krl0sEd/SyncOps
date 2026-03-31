@@ -99,6 +99,14 @@ function renderizarCards() { //Mostra todos os cards no grid
                          <div class="tag-progresso">${statusAtual}</div> 
                          <div class="tag-prioridade">${prioridadeAtual}</div> 
                     </div>
+                    <div class="submenu-grupo invisible"> 
+                         <butt class="submenu-opts" id="editarCard">
+                              Editar
+                         </butt invisibleon>
+                         <button class="submenu-opts" id="excluirCard">
+                              Excluir
+                         </button>
+                    </div>
                </div>
                <div class="card-inferior">
                     <div class="barra-progresso">
