@@ -102,7 +102,7 @@ function renderizarCards() { //Mostra todos os cards no grid
 
           // aqui exibe, de fato, cada card no Grid.
           grid.insertAdjacentHTML('beforeend', `
-          <article class="card" data-id=${checklist.id}>
+          <article class="card" data-id=${checklist.id} data-status=${checklist.status}>
           <div class="card-content">
                <div class="card-superior">
                     <div class="superior-grupo">
@@ -157,5 +157,47 @@ function renderizarCards() { //Mostra todos os cards no grid
      });
      });
 };
+
+// * Botões de filtro
+const filtroTodos = document.querySelector('#filtro-todos');
+const filtroConcluido = document.querySelector('#filtro-concluidos');
+const filtroAndamento = document.querySelector('#filtro-andamento');
+
+// Funcionalidade do botão "Todos"
+filtroTodos.addEventListener('click', () => {
+     const todosCheckLists = document.querySelectorAll('.card');
+     todosCheckLists.forEach((card) => {
+          card.classList.remove('invisible');
+     });
+});
+
+// Funcionalidade do botão "Concluido"
+filtroConcluido.addEventListener('click', () => {
+     const todosCheckLists = document.querySelectorAll('.card');
+
+     todosCheckLists.forEach((card) => {
+          if (card.dataset.status === 'concluido') {
+               card.classList.remove('invisible');
+          } else {
+               card.classList.add('invisible');
+          }
+     })
+});
+
+// Funcionalidade do botão "Andamento"
+filtroAndamento.addEventListener('click', () => { 
+     const todosCheckLists = document.querySelectorAll('.card');
+
+     todosCheckLists.forEach((card) => {
+            if (card.dataset.status === 'andamento') {
+                 card.classList.remove('invisible');
+           } else {
+               card.classList.add('invisible');
+           }
+     });
+});
+
+
+
 // * CONTENT LOADED
 document.addEventListener('DOMContentLoaded', renderizarCards);
