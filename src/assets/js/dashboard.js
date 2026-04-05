@@ -1,24 +1,3 @@
-// // * Abrir submenu
-// function abrirSubmenu() {
-//      const submenu = document.querySelectorAll('.submenu-grupo')
-//      submenu.classList.remove('invisible');
-//      console.log('Ação feita!')
-// };
-
-// let cards = document.querySelectorAll('.card');
-// const opcoesBtn = document.querySelectorAll('.opcoes-icon');
-
-// cards.forEach(card => {
-//      opcoesBtn.forEach(opcoes => {
-//           opcoes.addEventListener('click', function() {
-//                console.log('Ação feita!2');
-//                abrirSubmenu(opcoes);
-//           });
-//      });
-// });
-
-
-
 // * CARDS
 const grid = document.querySelector('#card-grid');
 
@@ -137,26 +116,27 @@ function renderizarCards() { //Mostra todos os cards no grid
                </div>
           </div>
      </article>`
-);
+          );
 
-// * submenu
-     const cardAtual = grid.lastElementChild;
-     cardAtual.querySelector('.opcoes-icon').addEventListener('click', function() {
-          event.stopPropagation();
-          document.querySelectorAll('.submenu-grupo').forEach((submenu) => {
-               submenu.classList.add('invisible');
+          // * submenu
+          const cardAtual = grid.lastElementChild;
+          cardAtual.querySelector('.opcoes-icon').addEventListener('click', function () {
+               event.stopPropagation();
+               document.querySelectorAll('.submenu-grupo').forEach((submenu) => {
+                    submenu.classList.add('invisible');
+               });
+               cardAtual.querySelector('.submenu-grupo').classList.remove('invisible');
+
+               const idAtual = cardAtual.dataset.id;
+               console.log('ID clicado:', idAtual);
           });
-          cardAtual.querySelector('.submenu-grupo').classList.remove('invisible');
 
-          const idAtual = cardAtual.dataset.id;
-          console.log('ID clicado:', idAtual);
-     });
-     
-     document.addEventListener('click', (event) => { //fechar submenu ao clicar fora
-          cardAtual.querySelector('.submenu-grupo').classList.add('invisible');
-     });
+          document.addEventListener('click', (event) => { //fechar submenu ao clicar fora
+               cardAtual.querySelector('.submenu-grupo').classList.add('invisible');
+          });
      });
 };
+
 
 // * Botões de filtro
 const filtroTodos = document.querySelector('#filtro-todos');
@@ -185,15 +165,15 @@ filtroConcluido.addEventListener('click', () => {
 });
 
 // Funcionalidade do botão "Andamento"
-filtroAndamento.addEventListener('click', () => { 
+filtroAndamento.addEventListener('click', () => {
      const todosCheckLists = document.querySelectorAll('.card');
 
      todosCheckLists.forEach((card) => {
-            if (card.dataset.status === 'andamento') {
-                 card.classList.remove('invisible');
-           } else {
+          if (card.dataset.status === 'andamento') {
+               card.classList.remove('invisible');
+          } else {
                card.classList.add('invisible');
-           }
+          }
      });
 });
 
