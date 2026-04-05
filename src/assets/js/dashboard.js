@@ -102,7 +102,7 @@ function renderizarCards() { //Mostra todos os cards no grid
 
           // aqui exibe, de fato, cada card no Grid.
           grid.insertAdjacentHTML('beforeend', `
-          <article class="card">
+          <article class="card" data-id=${checklist.id}>
           <div class="card-content">
                <div class="card-superior">
                     <div class="superior-grupo">
@@ -118,9 +118,9 @@ function renderizarCards() { //Mostra todos os cards no grid
                          <div class="tag-prioridade">${prioridadeAtual}</div> 
                     </div>
                     <div class="submenu-grupo invisible"> 
-                         <butt class="submenu-opts" id="editarCard">
+                         <button class="submenu-opts" id="editarCard">
                               Editar
-                         </butt invisibleon>
+                         </button>
                          <button class="submenu-opts" id="excluirCard">
                               Excluir
                          </button>
@@ -141,18 +141,21 @@ function renderizarCards() { //Mostra todos os cards no grid
 
 // * submenu
      const cardAtual = grid.lastElementChild;
-          const idCard = localStorage.setItem(cardAtual,'id');
-          console.log('Id do card atual:' + idCard)
-
-          cardAtual.querySelector('.opcoes-icon').addEventListener('click', function() {
-               cardAtual.querySelector('.submenu-grupo').classList.remove('invisible');
+     cardAtual.querySelector('.opcoes-icon').addEventListener('click', function() {
+          event.stopPropagation();
+          document.querySelectorAll('.submenu-grupo').forEach((submenu) => {
+               submenu.classList.add('invisible');
           });
+          cardAtual.querySelector('.submenu-grupo').classList.remove('invisible');
 
-          document.addEventListener('click', (event) => { //fechar submenu ao clicar fora
-               cardAtual.querySelector('.submenu-grupo').classList.add('invisible');
-          });
+          const idAtual = cardAtual.dataset.id;
+          console.log('ID clicado:', idAtual);
+     });
+     
+     document.addEventListener('click', (event) => { //fechar submenu ao clicar fora
+          cardAtual.querySelector('.submenu-grupo').classList.add('invisible');
+     });
      });
 };
-
 // * CONTENT LOADED
 document.addEventListener('DOMContentLoaded', renderizarCards);
