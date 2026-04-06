@@ -114,6 +114,7 @@
        border-radius: 5%;
        outline: transparent;
        transition: all 0.3s;
+       position: relative;
   }
 
   .card-content {
@@ -123,7 +124,19 @@
        height: 320px;
        max-width: 100%;
        padding: 40px;
+       overflow: hidden;
        /* border: 1px solid; */
+  }
+
+  /* * Hover */
+  .card:hover {
+       box-shadow: var(--cor-gradiente) 10px 10px 50px;
+       outline: 3px solid var(--cor-gradiente);
+  }
+
+  .superior-grupo {
+       display: flex;
+       justify-content: space-between;
   }
 
   .card-titulo {
@@ -138,10 +151,26 @@
        color: var(--texto-alto-contraste);
   }
 
+  .opcoes-icon {
+       display: flex;
+       gap: 4px;
+       align-items: center;
+       cursor: pointer;
+       padding: 4px;
+       flex-direction: column;
+  }
+
+  .opcoes-circulo {
+       width: 5px;
+       height: 5px;
+       border-radius: 50%;
+       background-color: var(--texto-hierarquia-3);
+  }
+
   .card-status {
-     display: flex;
-     justify-content: space-around;
-     margin-top: 10px;
+       display: flex;
+       justify-content: space-around;
+       margin-top: 10px;
   }
 
   .card-data {
@@ -150,10 +179,34 @@
        color: var(--texto-hierarquia-3);
   }
 
-  /* * Hover */
-  .card:hover {
-     box-shadow: var(--cor-gradiente) 10px 10px 50px;
-     outline: 3px solid var(--cor-gradiente);
+  /* * Submenu */
+  .submenu-grupo {
+       display: flex;
+       position: absolute;
+       flex-direction: column;
+       background-color: var(--botao-claro-bg);
+       color: var(--texto-alto-contraste);
+       padding: 20px;
+       border-radius: 10px;
+       box-shadow: var(--sombra-um);
+       gap: 12px;
+       right: 10px;
+       top: 80px;
+  }
+
+  .submenu-opts {
+       background-color: transparent;
+       border: none;
+       cursor: pointer;
+       font-family: 'Hanken Grotesk', sans-serif;
+       font-size: var(--text-xs);
+       font-weight: 500;
+       transition: all 0.2s;
+  }
+
+  /* * Hover Submenu */
+  .submenu-opts:hover {
+       color: var(--cor-marca-principal);
   }
 
 
@@ -162,68 +215,78 @@
   /* ============================= */
 
   /*----- Nível de prioridade ----- */
- .tag-prioridade.alta,
- .tag-prioridade.media,
- .tag-prioridade.baixa {
-     display: flex;
-     align-items: center;
-     gap: 10px;
-     width: 100px;
-     height: 26px;
-     font-size: var(--text-xs);
-     padding: 6px 12px;
-     border-radius: 10px;
-     font-weight: 700;
-     box-sizing: border-box
+  .tag-prioridade.alta,
+  .tag-prioridade.media,
+  .tag-prioridade.baixa {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       width: 100px;
+       height: 26px;
+       font-size: var(--text-xs);
+       padding: 6px 12px;
+       border-radius: 10px;
+       font-weight: 700;
+       box-sizing: border-box
   }
+
   .tag-icone {
-     width: 14px;
-     flex-shrink: 0;
-     stroke-width: 3.2;
-     overflow: visible;
+       width: 14px;
+       flex-shrink: 0;
+       stroke-width: 3.2;
+       overflow: visible;
   }
 
   .alta {
-     background-color: var(--prioridade-alta-bg); color: var(--prioridade-alta-texto);
+       background-color: var(--prioridade-alta-bg);
+       color: var(--prioridade-alta-texto);
   }
 
   .media {
-     background-color: var(--prioridade-media-bg); color: var(--prioridade-media-texto);
+       background-color: var(--prioridade-media-bg);
+       color: var(--prioridade-media-texto);
   }
+
   .baixa {
-     background-color: var(--prioridade-baixa-bg); color: var(--prioridade-baixa-texto);
+       background-color: var(--prioridade-baixa-bg);
+       color: var(--prioridade-baixa-texto);
   }
 
 
-    /*----- Status de Andamento ----- */
+  /*----- Status de Andamento ----- */
   .tag-progresso.andamento,
   .tag-progresso.concluido,
   .tag-progresso.nao-iniciada {
-     display: flex;
-     align-items: center;
-     gap: 10px;
-     width: 130px;
-     height: 26px;
-     font-size: var(--text-xs);
-     padding: 6px 12px;
-     border-radius: 10px;
-     font-weight: 700;
-     box-sizing: border-box
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       width: 130px;
+       height: 26px;
+       font-size: var(--text-xs);
+       padding: 6px 12px;
+       border-radius: 10px;
+       font-weight: 700;
+       box-sizing: border-box
   }
+
   .tag-icone {
-     width: 14px;
-     flex-shrink: 0;
-     stroke-width: 3.2;
-     overflow: visible;
+       width: 14px;
+       flex-shrink: 0;
+       stroke-width: 3.2;
+       overflow: visible;
   }
 
   .andamento {
-     background-color: var(--status-andamento-bg); color: var(--status-andamento-texto);
+       background-color: var(--status-andamento-bg);
+       color: var(--status-andamento-texto);
   }
 
   .concluido {
-     background-color: var(--status-concluido-bg); color: var(--status-concluido-texto);
+       background-color: var(--status-concluido-bg);
+       color: var(--status-concluido-texto);
   }
+
   .nao-iniciada {
-     background-color: var(--status-nao-iniciado-bg); color: var(--status-nao-iniciado-texto);
+       background-color: var(--status-nao-iniciado-bg);
+       color: var(--status-nao-iniciado-texto);
   }

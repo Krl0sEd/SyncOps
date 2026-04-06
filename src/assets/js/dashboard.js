@@ -1,6 +1,3 @@
-// * CONTENT LOADED
-document.addEventListener('DOMContentLoaded', renderizarCards);
-
 // * CARDS
 const grid = document.querySelector('#card-grid');
 
@@ -83,14 +80,29 @@ function renderizarCards() { //Mostra todos os cards no grid
           }
 
           // aqui exibe, de fato, cada card no Grid.
-          grid.innerHTML += `
-          <article class="card">
+          grid.insertAdjacentHTML('beforeend', `
+          <article class="card" data-id=${checklist.id} data-status=${checklist.status}>
           <div class="card-content">
                <div class="card-superior">
-                    <h3 class="card-titulo">${checklist.title}</h3>
+                    <div class="superior-grupo">
+                         <h3 class="card-titulo">${checklist.title}</h3>
+                         <div class="opcoes-icon"> 
+                              <div class="opcoes-circulo"></div>
+                              <div class="opcoes-circulo"></div>
+                              <div class="opcoes-circulo"></div>
+                         </div>
+                    </div>
                     <div class="card-status">
-                         <div class="tag-progrresso">${statusAtual}</div> 
+                         <div class="tag-progresso">${statusAtual}</div> 
                          <div class="tag-prioridade">${prioridadeAtual}</div> 
+                    </div>
+                    <div class="submenu-grupo invisible"> 
+                         <button class="submenu-opts" id="editarCard">
+                              Editar
+                         </button>
+                         <button class="submenu-opts" id="excluirCard">
+                              Excluir
+                         </button>
                     </div>
                </div>
                <div class="card-inferior">
@@ -104,5 +116,68 @@ function renderizarCards() { //Mostra todos os cards no grid
                </div>
           </div>
      </article>`
+          );
+
+          // * submenu
+          const cardAtual = grid.lastElementChild;
+          cardAtual.querySelector('.opcoes-icon').addEventListener('click', function () {
+               event.stopPropagation();
+               document.querySelectorAll('.submenu-grupo').forEach((submenu) => {
+                    submenu.classList.add('invisible');
+               });
+               cardAtual.querySelector('.submenu-grupo').classList.remove('invisible');
+
+               const idAtual = cardAtual.dataset.id;
+               console.log('ID clicado:', idAtual);
+          });
+
+          document.addEventListener('click', (event) => { //fechar submenu ao clicar fora
+               cardAtual.querySelector('.submenu-grupo').classList.add('invisible');
+          });
      });
 };
+
+
+// * Botões de filtro
+const filtroTodos = document.querySelector('#filtro-todos');
+const filtroConcluido = document.querySelector('#filtro-concluidos');
+const filtroAndamento = document.querySelector('#filtro-andamento');
+
+// Funcionalidade do botão "Todos"
+filtroTodos.addEventListener('click', () => {
+     const todosCheckLists = document.querySelectorAll('.card');
+     todosCheckLists.forEach((card) => {
+          card.classList.remove('invisible');
+     });
+});
+
+// Funcionalidade do botão "Concluido"
+filtroConcluido.addEventListener('click', () => {
+     const todosCheckLists = document.querySelectorAll('.card');
+
+     todosCheckLists.forEach((card) => {
+          if (card.dataset.status === 'concluido') {
+               card.classList.remove('invisible');
+          } else {
+               card.classList.add('invisible');
+          }
+     })
+});
+
+// Funcionalidade do botão "Andamento"
+filtroAndamento.addEventListener('click', () => {
+     const todosCheckLists = document.querySelectorAll('.card');
+
+     todosCheckLists.forEach((card) => {
+          if (card.dataset.status === 'andamento') {
+               card.classList.remove('invisible');
+          } else {
+               card.classList.add('invisible');
+          }
+     });
+});
+
+
+
+// * CONTENT LOADED
+document.addEventListener('DOMContentLoaded', renderizarCards);
