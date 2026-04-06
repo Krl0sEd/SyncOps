@@ -186,8 +186,14 @@ searchBar.addEventListener('keyup', () => {
 
      todosCards.forEach((card) => {
           const cardTitulo = card.querySelector('.card-titulo').textContent.toLowerCase();
+          const cardTituloMarcado = card.querySelector('.card-titulo').textContent;
+          const cardAtual = card.querySelector('.card-titulo');
+
           if (cardTitulo.includes(searchItem)) {
                card.classList.remove('invisible');
+              const textoMarcado =  cardTituloMarcado.replace(new RegExp(searchItem, 'gi'), (match) => `<span style="color: purple">${match}</span>`)
+              card.querySelector('.card-titulo').innerHTML = textoMarcado;
+
           } else {
                card.classList.add('invisible')
           }
