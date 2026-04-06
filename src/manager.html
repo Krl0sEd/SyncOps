@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>SyncOps</title>
+     <!-- Conexão com todos os css -->
+     <link rel="stylesheet" href="assets/css/base.css">
+     <link rel="stylesheet" href="assets/css/layout.css">
+     <link rel="stylesheet" href="assets/css/components.css">
+     <link rel="stylesheet" href="assets/css/utilities.css">
+     <!-- Fonte -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+     </head>
+
+<body>
+     <header>
+          <div class="logo-area"> <!-- Em aguardoa logo -->
+               <p>
+                    <a href="index.html">
+                         SyncOps
+                    </a>
+               </p>
+          </div>
+
+          <div class="header-acoes">
+               <button class="btn-header" id="btn-darkmode" aria-label="Ativar modo escuro">
+                    <svg id="darkmode-icon" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M23.1059 3.99986H29M26.0529 1V6.99971M27.5044 15.2283C27.3663 17.8324 26.4901 20.34 24.9818 22.4481C23.4735 24.5561 21.3976 26.1743 19.005 27.107C16.6125 28.0398 14.0058 28.2471 11.5 27.704C8.99413 27.1609 6.6965 25.8906 4.8848 24.0466C3.07309 22.2027 1.82489 19.864 1.29107 17.3134C0.757254 14.7627 0.960674 12.1093 1.87674 9.67381C2.79282 7.23833 4.38232 5.12508 6.4531 3.58953C8.52389 2.05397 10.9873 1.16185 13.5456 1.021C14.1423 0.988 14.4547 1.71097 14.1379 2.22544C13.0783 3.95119 12.6246 5.99156 12.8508 8.01359C13.077 10.0356 13.9698 11.9199 15.3835 13.3589C16.7972 14.798 18.6484 15.7068 20.6348 15.937C22.6213 16.1673 24.6257 15.7055 26.3211 14.6268C26.828 14.3044 27.5368 14.6208 27.5044 15.2283Z"
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+               </button>
+
+               <button class="btn-header" aria-label="Icone com usuário">
+                    <svg id="user-icon" viewBox="0 0 33 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M16.5 21C21.8503 21 26.1875 16.5228 26.1875 11C26.1875 5.47715 21.8503 1 16.5 1C11.1497 1 6.8125 5.47715 6.8125 11C6.8125 16.5228 11.1497 21 16.5 21ZM16.5 21C20.6109 21 24.5533 22.6857 27.4602 25.6863C30.367 28.6869 32 32.7565 32 37M16.5 21C12.3891 21 8.44666 22.6857 5.53985 25.6863C2.63303 28.6869 1 32.7565 1 37"
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+               </button>
+          </div>
+     </header>
+     
+     <main>
+          <section class="card-header">
+               <div class="card-header-main">
+                    <h2 class="title-h2">Nova Tarefa</h2>
+                    <button id="btn-criar" aria-label="Adicionar nova tarefa">
+                         <img src="assets/icons/adicionar.svg" alt="Ícone de 'mais'">
+                    </button>
+               </div>
+
+               <div id="header-config">
+
+                    <nav id="header-class">
+
+                         <input type="text" placeholder="Nível de Prioridade">
+                         <input type="text" placeholder="Área Responsável">
+                         <input type="date" placeholder="Data de Encerramento" img id="img-calendario" src="assets/icons/calendario.svg" alt="Ícone de calendário">
+
+                    </nav>
+
+
+               </div>
+               
+          </section>
+
+          <section class="card-tasks">
+
+               <div class="created-tasks-container">
+                    
+                    <div id="created-tasks" class="tasks-list">
+                         <!-- Tarefas criadas aparecerão aqui -->
+                         
+                    </div>
+                    
+                    <button id="btn-add-task">
+                         <img src="assets/icons/adicionar.svg" alt="Ícone de 'mais'">
+                         <p>Adicionar Tarefa</p>
+                    </button>
+                    
+               </div>
+                    
+                    <div class="task-details-container">
+                         <div class="task-details-class">
+                              <h4 class="title-h4">Prioridade desta tarefa:</h4>
+                              <input class="task-details-input" type="text" placeholder="baixa">
+                         </div>
+                             <div class="description-task">
+                                  <input type="text"  class="description-task-title" placeholder="Clique para adicionar um titulo.">
+                                   <input type="text"id="description-task-paragraph" placeholder="Clique para adicionar uma descrição.">
+                             </div>
+                    </div>
+                    
+                     
+                    
+                    
+               </section>
+    </main>
+</body>
+
+<footer>
+     
+</footer>
+</html>
