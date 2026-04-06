@@ -177,6 +177,23 @@ filtroAndamento.addEventListener('click', () => {
      });
 });
 
+// * Search bar
+const searchBar = document.querySelector('#search-bar');
+
+searchBar.addEventListener('keyup', () => {
+     const searchItem = searchBar.value.toLowerCase(); 
+     const todosCards = document.querySelectorAll('.card');
+
+     todosCards.forEach((card) => {
+          const cardTitulo = card.querySelector('.card-titulo').textContent.toLowerCase();
+          if (cardTitulo.includes(searchItem)) {
+               card.classList.remove('invisible');
+          } else {
+               card.classList.add('invisible')
+          }
+     });
+});
+
 
 
 // * CONTENT LOADED
