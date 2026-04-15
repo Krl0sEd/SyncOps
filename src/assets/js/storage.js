@@ -3,6 +3,7 @@ const STORAGE_KEY = 'syncops_checklists'; // nome para achar os dados dentro do 
 function getAllChecklists() {
      const data = localStorage.getItem(STORAGE_KEY);
      return data ? JSON.parse(data) : []; // Se tiver dados, retorna todos eles. Se não, devolve um array vazia.
+     console.log(data);
 }
 
 function saveAllChecklists(checklists) {
@@ -39,8 +40,8 @@ function updateCheckList(id, dadosAtualizados) {
 
      if (index === -1) return null;
 
-     checklists[index] = { 
-     //! o '...' (spread) ele despeja os campos dos objetos e vê qual se repete, se um campo aparecer mais vezes, o ultimo prevalece
+     checklists[index] = {
+          //! o '...' (spread) ele despeja os campos dos objetos e vê qual se repete, se um campo aparecer mais vezes, o ultimo prevalece
           ...checklists[index], //joga: id, titulo, priority, status...
           ...dadosAtualizados, // joga: sobrescreve o valor antigo
           updateAt: new Date().toISOString()
@@ -62,9 +63,9 @@ function deleteCheckLists(id) {
 
 //* Barra de progresso
 const PESOS_PRIORIDADE = {
-     'baixa' : 1,
-     'media' : 2,
-     'alta' : 3
+     'baixa': 1,
+     'media': 2,
+     'alta': 3
 };
 
 function calcularProgresso(tasks) {
@@ -88,7 +89,7 @@ function calcularProgresso(tasks) {
 
 function adicionarTask(checkListId) {
      const checklists = getAllChecklists();
-     
+
      const index = checklists.findIndex(checklist => checklist.id === checkListId);
      if (index === -1) return null;
 
