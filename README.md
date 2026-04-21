@@ -77,3 +77,4 @@ docker-compose up -d --build
   ✨ Feito com dedicação por <b>Anderson</b>, <b>Carlos</b> e <b>Pamela</b> 🚀
 </p>
 
+---
