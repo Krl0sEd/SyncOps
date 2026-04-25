@@ -290,3 +290,36 @@
        background-color: var(--status-nao-iniciado-bg);
        color: var(--status-nao-iniciado-texto);
   }
+
+
+  /* ============================= */
+  /*    Barra de Progresso         */
+  /* ============================= */
+
+  .progresso-wrapper {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 30px;
+  }
+
+   .progresso-label {
+     color: var(--prioridade-baixa-texto);
+     font-weight: 600;
+   }
+
+   .progresso-track {
+     background-color: var(--toggle-bg);
+     width: 100%;
+     height: 5px;
+     border-radius: 999px; 
+    overflow: hidden;
+   }
+
+   .barra-preenchimento {
+      height: 5px;
+      width: 0%;
+      background-color: yellowgreen;
+      border-radius: 999px;
+      transition: width 0.4s ease;
+   }

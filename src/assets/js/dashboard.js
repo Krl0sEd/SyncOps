@@ -106,8 +106,11 @@ function renderizarCards() { //Mostra todos os cards no grid
                     </div>
                </div>
                <div class="card-inferior">
-                    <div class="barra-progresso">
-                         <div class="barra-preenchimento" style="width: ${checklist.progress}%"></div>
+                    <div class="progresso-wrapper">
+                         <span class="progresso-label">${checklist.progress}%</span>
+                         <div class="progresso-track">
+                              <div class="barra-preenchimento" style="width: ${checklist.progress}%"></div>
+                         </div>
                     </div> 
                          <div class="card-data">
                               <span>Última atualização:</span>
