@@ -2,6 +2,23 @@
   /*    Botoes                     */
   /* ============================= */
 
+  /* ---------- Dashboard --------- */
+
+  #btn-criar {
+       background-color: var(--cor-marca-principal);
+       padding: 15px;
+       border-radius: 100%;
+       border: transparent;
+       transition: all 0.3s;
+  }
+
+  #btn-criar img {
+       width: 24px;
+       height: auto;
+  }
+
+  #btn-criar:hover {
+       background-color: rgb(137, 24, 243);
   /* Dashboard */
 
   #btn-criar {
