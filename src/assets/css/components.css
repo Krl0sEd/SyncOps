@@ -293,33 +293,120 @@
 
 
   /* ============================= */
-  /*    Barra de Progresso         */
-  /* ============================= */
-
-  .progresso-wrapper {
+/*    Barra de Progresso         */
+/* ============================= */
+ 
+.progresso-wrapper {
      width: 100%;
      display: flex;
      flex-direction: column;
+     gap: 4px;
      margin-bottom: 30px;
-  }
-
-   .progresso-label {
-     color: var(--prioridade-baixa-texto);
+}
+ 
+.progresso-label {
+     color: var(--texto-principal);
      font-weight: 600;
-   }
-
-   .progresso-track {
+}
+ 
+.progresso-track {
      background-color: var(--toggle-bg);
      width: 100%;
      height: 5px;
-     border-radius: 999px; 
-    overflow: hidden;
-   }
-
-   .barra-preenchimento {
-      height: 5px;
-      width: 0%;
-      background-color: yellowgreen;
-      border-radius: 999px;
-      transition: width 0.4s ease;
-   }
+     border-radius: 999px;
+     overflow: hidden;
+}
+ 
+.barra-preenchimento {
+     height: 5px;
+     width: 0%;
+     background-color: #5cb85c;
+     border-radius: 999px;
+     transition: width 0.4s ease;
+}
+ 
+ 
+/* ============================= */
+/*    Modal de Confirmação       */
+/* ============================= */
+ 
+.modal-overlay {
+     position: fixed;
+     inset: 0; /* shorthand para top/right/bottom/left: 0 */
+     background-color: rgba(0, 0, 0, 0.4);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 1000;
+ 
+     /* Animação de entrada */
+     opacity: 0;
+     transition: opacity 0.2s ease;
+}
+ 
+.modal-overlay.visivel {
+     opacity: 1;
+}
+ 
+.modal-caixa {
+     background-color: var(--botao-claro-bg);
+     border-radius: 16px;
+     padding: 32px;
+     max-width: 420px;
+     width: 90%;
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+     box-shadow: var(--sombra-um);
+ 
+     /* Animação de entrada */
+     transform: translateY(12px);
+     transition: transform 0.2s ease;
+}
+ 
+.modal-overlay.visivel .modal-caixa {
+     transform: translateY(0);
+}
+ 
+.modal-titulo {
+     font-size: 1.1rem;
+     font-weight: 700;
+     color: var(--texto-principal);
+}
+ 
+.modal-descricao {
+     font-size: 0.9rem;
+     color: var(--texto-hierarquia-2);
+     line-height: 1.5;
+}
+ 
+.modal-acoes {
+     display: flex;
+     gap: 10px;
+     justify-content: flex-end;
+     margin-top: 8px;
+}
+ 
+.modal-btn {
+     padding: 8px 20px;
+     border-radius: 8px;
+     font-size: 0.875rem;
+     font-weight: 600;
+     cursor: pointer;
+     border: none;
+     transition: opacity 0.15s ease;
+}
+ 
+.modal-btn:hover {
+     opacity: 0.8;
+}
+ 
+.modal-btn.cancelar {
+     background-color: var(--toggle-bg);
+     color: var(--texto-principal);
+}
+ 
+.modal-btn.confirmar {
+     background-color: var(--prioridade-alta-bg);
+     color: var(--prioridade-alta-texto);
+}
