@@ -120,6 +120,12 @@
        justify-content: center;
        gap: 240px;
   }
+ #header-config {
+     display: flex;
+     justify-content: center;
+     gap: 10px;
+     
+  }
 
   input {
      padding: 12px;
@@ -138,7 +144,6 @@
        gap: 20px;
          flex-wrap: wrap;
 }
-
   #card-container {
      max-width: 100%;
      height: 500px;
