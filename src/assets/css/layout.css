@@ -120,12 +120,6 @@
        justify-content: center;
        gap: 240px;
   }
- #header-config {
-     display: flex;
-     justify-content: center;
-     gap: 10px;
-     
-  }
 
   input {
      padding: 12px;
@@ -133,6 +127,17 @@
      border: 1px solid var(--componente-secundario);
      width: 200px;
   }
+
+/* ============================= */
+  /*     CARDS DE TASKS            */
+  /* ============================= */
+
+.card-tasks{
+       display: flex;
+       align-items: center;
+       gap: 20px;
+         flex-wrap: wrap;
+}
 
 /* ============================= */
   /*     CARDS DE TASKS            */
