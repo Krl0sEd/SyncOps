@@ -1,5 +1,6 @@
 .title-h2 {
      font-size: var(--text-3xl);
+     color: var(--texto-principal);
 }
 
 .invisible {
