@@ -50,19 +50,29 @@ function configurarPainelDireito() {
     const el = document.getElementById(id);
     if (el) {
       el.addEventListener('input', () => {
-        sincronizarDetalhe();
+        if (id !== 'prioridade') {
+          sincronizarDetalhe();
+        }
         if (id === 'descricao') atualizarContadorDescricao();
-        if (id === 'nivel-prioridade') atualizarBandeiraPrioridade(el);
+        if (id === 'nivel-prioridade' || id === 'prioridade') atualizarBandeiraPrioridade(el);
       });
     }
   });
 }
 
 function atualizarBandeiraPrioridade(select) {
+  if (!select) return;
   const wrapper = select.closest('.priority-select-wrapper');
   if (!wrapper) return;
-  wrapper.classList.remove('baixa', 'media', 'alta');
-  wrapper.classList.add(select.value || 'baixa');
+  wrapper.classList.remove('alta', 'media', 'baixa');
+  const value = normalizarPrioridade(select.value);
+  wrapper.classList.add(value);
+}
+
+function normalizarPrioridade(value) {
+  if (!value) return 'baixa';
+  if (value === 'média') return 'media';
+  return value;
 }
 
 function atualizarContadorDescricao() {
@@ -71,6 +81,7 @@ function atualizarContadorDescricao() {
   if (descricao && contador) {
     contador.textContent = String(descricao.value.length);
   }
+  
 }
 
 // ─── Buffer temporário de tasks (modo criação) ───────────────
@@ -98,14 +109,24 @@ function setTasksAtuais(tasks) {
 
 // ─── Criar task (chamado pelo onclick="CreateTask()" no HTML) ─
 
+function obterDeadlineChecklist() {
+  if (checklistId) {
+    const todos = getAllChecklists();
+    const c = todos.find(c => c.id === checklistId);
+    return c ? (c.deadline || '') : '';
+  }
+  return document.getElementById('prazo')?.value || '';
+}
+
 function CreateTask() {
   let tasks = getTasksAtuais();
+  const prioridadeTask = document.getElementById('nivel-prioridade')?.value || 'baixa';
 
   const nova = {
     id:          Date.now().toString(),
     title:       '',
     description: '',
-    priority:    'baixa',
+    priority:    prioridadeTask,
     completed:   false,
   };
 
@@ -139,7 +160,13 @@ function renderizarTasks(tasks) {
       <span class="task-item-numero">${String(index + 1).padStart(2, '0')}</span>
       <div class="task-item-corpo">
         <span class="task-item-titulo">${task.title || 'Sem título'}</span>
-        <span class="task-item-prioridade ${task.priority || 'baixa'}">${task.priority || 'baixa'}</span>
+        <span class="task-item-meta">
+          <span class="task-item-prioridade ${normalizarPrioridade(task.priority)}">${task.priority === 'média' ? 'Média' : (task.priority || 'baixa')}</span>
+          ${(() => {
+            const prazo = task.deadline || obterDeadlineChecklist();
+            return prazo ? `<span class="task-item-deadline">${formatarDataPrazo(prazo)}</span>` : '';
+          })()}
+        </span>
       </div>
       <button class="task-item-remover" title="Remover">
         <svg viewBox="0 0 16 16" width="14" height="14" fill="none">
@@ -223,8 +250,8 @@ function sincronizarDetalhe() {
   const prioEl   = itemEl.querySelector('.task-item-prioridade');
   if (tituloEl) tituloEl.textContent = t.title || 'Sem título';
   if (prioEl) {
-    prioEl.textContent = t.priority;
-    prioEl.className   = `task-item-prioridade ${t.priority || 'baixa'}`;
+    prioEl.textContent = t.priority === 'média' ? 'Média' : (t.priority || 'baixa');
+    prioEl.className   = `task-item-prioridade ${normalizarPrioridade(t.priority)}`;
   }
 }
 
@@ -235,6 +262,17 @@ function removerTask(id) {
   setTasksAtuais(tasks);
   if (taskSelecionada === id) { taskSelecionada = null; limparPainel(); }
   renderizarTasks(tasks);
+}
+
+function formatarDataPrazo(value) {
+  if (!value) return '';
+  const data = new Date(value);
+  if (Number.isNaN(data.getTime())) return value;
+  return data.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
 }
 
 function atualizarTaskCount(total) {

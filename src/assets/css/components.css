@@ -11,6 +11,7 @@
        border: transparent;
        transition: all 0.3s;
        cursor: pointer;
+       margin-top: 10px;
   }
 
   #btn-criar img {
@@ -413,6 +414,21 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.task-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-item-deadline {
+  font-size: 10px;
+  color: var(--texto-hierarquia-2);
+  background: rgba(0,0,0,0.04);
+  border-radius: 999px;
+  padding: 3px 8px;
 }
 
 /* Badge de prioridade dentro do item — reusa .alta/.media/.baixa existentes */

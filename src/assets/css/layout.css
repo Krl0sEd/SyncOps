@@ -253,18 +253,19 @@
      align-items: center;
      gap: 10px;
      background: rgba(255, 255, 255, 0.9);
-     border: 1.5px solid var(--toggle-bg);
-     border-radius: 12px;
-     padding: 8px 12px;
-     width: fit-content;
+     border: 1px solid var(--toggle-bg);
+     border-radius: 8px;
+     padding: 12px;
+     width: 200px;
   }
 
   .priority-select-wrapper .priority-flag {
-     display: inline-block;
+     display: flex;
+   margin-left: 53px;
      width: 10px;
      height: 18px;
      border-radius: 3px;
-     position: relative;
+     font-size: 18px;
      background: var(--prioridade-baixa-bg);
   }
 
@@ -281,14 +282,17 @@
 
   .priority-select-wrapper.alta .priority-flag {
      background: var(--prioridade-alta-bg);
+     color: var(--prioridade-alta-texto);
   }
 
   .priority-select-wrapper.media .priority-flag {
      background: var(--prioridade-media-bg);
+     color: var(--prioridade-media-texto);
   }
 
   .priority-select-wrapper.baixa .priority-flag {
      background: var(--prioridade-baixa-bg);
+     color: var(--prioridade-baixa-texto);
   }
 
   .priority-select {
@@ -299,10 +303,6 @@
      font-family: 'Hanken Grotesk', sans-serif;
      font-size: 0.95rem;
      cursor: pointer;
-  }
-
-  .priority-select::-ms-expand {
-     display: none;
   }
 
   .description-task {
