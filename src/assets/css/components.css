@@ -1,4 +1,4 @@
-  /* ============================= */
+/* ============================= */
   /*    Botoes                     */
   /* ============================= */
 
@@ -10,6 +10,8 @@
        border-radius: 100%;
        border: transparent;
        transition: all 0.3s;
+       cursor: pointer;
+       margin-top: 10px;
   }
 
   #btn-criar img {
@@ -61,6 +63,22 @@
      background-color: var(--componente-bg-1);
      border: 2px solid var(--componente-bg-1);
      color: var(--texto-invertido);
+  }
+  #btn-add-task {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     width: 280px;
+     height: 50px;
+     background-color: var(--cor-marca-principal);
+     border: transparent;
+     border-radius: 8px;
+     transition: all 0.3s;
+     color: white;
+      font-family: "Hanken Grotesk", sans-serif;
+      font-size: 16px;
+      cursor: pointer;
   }
 
     .btn-filtro.ativo:hover {
@@ -310,6 +328,217 @@
   }
 
 
+<<<<<<< HEAD
+/* ============================= */
+/*    Manager — Botões Ação      */
+/* ============================= */
+
+.btn-cancelar {
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 8px;
+  border: 1.5px solid var(--toggle-bg);
+  background: transparent;
+  color: var(--texto-hierarquia-2);
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancelar:hover {
+  border-color: var(--prioridade-alta-bg);
+  color: var(--prioridade-alta-texto);
+  background-color: var(--prioridade-alta-bg);
+}
+
+.btn-salvar {
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: transparent;
+  background-color: var(--cor-marca-principal);
+  color: #ffffff;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-salvar:hover {
+  background-color: rgb(137, 24, 243);
+}
+
+.btn-salvar:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ============================= */
+/*    Manager — Task Item        */
+/* ============================= */
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  position: relative;
+}
+
+.task-item:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: var(--cor-gradiente);
+}
+
+.task-item-ativa {
+  background-color: #ffffff;
+  border-color: var(--cor-marca-principal);
+  box-shadow: 0 0 0 3px rgba(116, 0, 184, 0.08);
+}
+
+.task-item-numero {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--texto-hierarquia-2);
+  min-width: 20px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.task-item-ativa .task-item-numero {
+  color: var(--cor-marca-principal);
+}
+
+.task-item-corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.task-item-titulo {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--texto-principal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-item-deadline {
+  font-size: 10px;
+  color: var(--texto-hierarquia-2);
+  background: rgba(0,0,0,0.04);
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+
+/* Badge de prioridade dentro do item — reusa .alta/.media/.baixa existentes */
+.task-item-prioridade {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  width: fit-content;
+  text-transform: capitalize;
+}
+
+/* Botão remover — só aparece no hover */
+.task-item-remover {
+  background: none;
+  border: none;
+  padding: 4px;
+  border-radius: 6px;
+  color: var(--texto-hierarquia-2);
+  cursor: pointer;
+  opacity: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s, color 0.15s, background 0.15s;
+}
+
+.task-item:hover .task-item-remover {
+  opacity: 1;
+}
+
+.task-item-remover:hover {
+  color: var(--prioridade-alta-texto);
+  background-color: var(--prioridade-alta-bg);
+}
+
+.tasks-empty {
+  font-size: var(--text-xs);
+  color: var(--texto-hierarquia-2);
+  text-align: center;
+  line-height: 1.6;
+  padding: 32px 16px;
+}
+
+
+/* ============================= */
+/*    Manager — Inputs Detalhes  */
+/* ============================= */
+
+.description-task-title,
+.description-task-paragraph {
+  border: 1.5px solid var(--toggle-bg);
+  border-radius: 10px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  color: var(--texto-principal);
+  background: transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.description-task-title:focus,
+.description-task-paragraph:focus,
+.task-details-input:focus {
+  border-color: var(--cor-marca-principal);
+  box-shadow: 0 0 0 3px rgba(116, 0, 184, 0.1);
+}
+
+.description-task-title::placeholder,
+.description-task-paragraph::placeholder {
+  color: var(--texto-desabilitado);
+}
+
+
+/* ============================= */
+/*    Manager — Dark mode        */
+/* ============================= */
+
+:root.darkmode .task-item {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+:root.darkmode .task-item:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+:root.darkmode .task-item-ativa {
+  background-color: rgba(168, 85, 247, 0.12);
+  border-color: var(--cor-marca-principal);
+}
+=======
   /* ============================= */
 /*    Barra de Progresso         */
 /* ============================= */
@@ -431,3 +660,4 @@
  #search-icon:focus {
      color: violet; 
      } 
+>>>>>>> origin/dev
