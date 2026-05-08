@@ -43,13 +43,14 @@
                </button>
           </div>
      </header>
-     
+
      <main>
           <section class="card-header">
                <div class="card-header-main">
                     <h2 class="title-h2">Lista de Tarefas</h2>
-                    <button id="btn-criar" aria-label="Adicionar nova tarefa">
+                    <button id="btn-criar" onclick="window.location.href='/src/manager.html'" aria-label="Adicionar nova tarefa">
                          <img src="assets/icons/adicionar.svg" alt="Ícone de 'mais'">
+                         
                     </button>
                </div>
 
@@ -71,10 +72,15 @@
           </section>
 
           <section id="card-container">
-               <div class="card-grid">
+               <div id="card-grid">
                </div>
           </section>
      </main>
 </body>
+
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/barra-progresso.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/dashboard.js"></script>
 
 </html>

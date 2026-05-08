@@ -1,4 +1,4 @@
-  /* ============================= */
+/* ============================= */
   /*     HEADER                    */
   /* ============================= */
 
@@ -93,8 +93,14 @@
   }
 
   .card-header-main {
+<<<<<<< HEAD
+       display: flex;
+       justify-content: space-between;
+       border-bottom: 1px solid var(--componente-secundario);
+=======
      display: flex;
      justify-content: space-between;
+>>>>>>> origin/dev
   }
 
   .card-header-ferramentas {
@@ -139,6 +145,16 @@
          flex-wrap: wrap;
 }
 
+/* ============================= */
+  /*     CARDS DE TASKS            */
+  /* ============================= */
+
+.card-tasks{
+       display: flex;
+       align-items: center;
+       gap: 20px;
+         flex-wrap: wrap;
+}
   #card-container {
      max-width: 100%;
      height: 500px;
@@ -261,5 +277,271 @@
      display: flex;
      gap: 40px;
   }
+ #header-config {
+     display: flex;
+     justify-content: center;
+     gap: 10px;
+     
+  }
 
+<<<<<<< HEAD
+  #header-class{
+       display: flex;
+       margin: 40px 0px 20px 0px;
+       justify-content: center;
+       gap: 240px;
+  }
+  .config-task1 {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+  }
+  .config-task2 {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+  }
+  .config-task3 {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+  }
+
+  input {
+     padding: 12px;
+     border-radius: 8px;
+     border: 1px solid var(--componente-secundario);
+     width: 200px;
+  }
+
+/* ============================= */
+  /*     CARDS DE TASKS            */
+  /* ============================= */
+
+.card-tasks{
+       display: flex;
+       align-items: center;
+       gap: 20px;
+         flex-wrap: wrap;
+}
+  #card-container {
+     max-width: 100%;
+     height: 500px;
+     margin-top: 20px;
+     border-radius: 20px;
+
+
+       /* Efeito glass */
+       background: rgba(255, 255, 255, 0.19);
+       border-radius: 16px;
+       box-shadow: 0 24px 30px rgba(0, 0, 0, 0.106);
+       backdrop-filter: blur(6px);
+       -webkit-backdrop-filter: blur(6px);
+       border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  #card-grid {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 10px;
+       justify-content: center;
+  }
+ /* ============================= */
+  /*     DESCRIÇÃO DAS TASKS       */
+  /* ============================= */
+.created-tasks-container {
+     display: flex;
+      flex-direction: column;
+      align-items: center;
+     gap: 20px;
+     width: 350px;
+     height: 480px;
+       margin: 30px 20px;
+       border-radius: 20px;
+
+        /* Efeito glass */
+     background: rgba(255, 255, 255, 0.19);
+     border-radius: 16px;
+     box-shadow: 0 24px 30px rgba(0, 0, 0, 0.106);
+     backdrop-filter: blur(6px);
+     -webkit-backdrop-filter: blur(6px);
+     border: 1px solid rgba(255, 255, 255, 0.08); 
+      
+  }
+  .tasks-list {
+   background-color: rosybrown;
+     display: flex;
+     flex-direction: column;
+   width: 300px;
+   margin: 20px 0px;
+     height: 340px;
+     border-radius: 20px;
+
+      gap: 20px;
+      
+  }
   
+  .task-details-container {
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+     width: 700px;
+     height: 480px;
+     padding: 12px;
+     border-radius: 8px;
+
+         /* Efeito glass */
+     background: rgba(255, 255, 255, 250);
+     border-radius: 16px;
+     box-shadow: 0 24px 30px rgba(0, 0, 0, 0.106);
+     backdrop-filter: blur(6px);
+     -webkit-backdrop-filter: blur(6px);
+     border: 1px solid rgba(255, 255, 255, 0.08); 
+      
+  }
+  .task-details-class {
+     display: flex;
+     justify-content: center;
+    align-items: center;
+     gap: 10px;
+
+  }
+  .task-details-input {
+     width: 110px;
+     height: 37px;
+  }
+
+  .priority-select-wrapper {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     background: rgba(255, 255, 255, 0.9);
+     border: 1px solid var(--toggle-bg);
+     border-radius: 8px;
+     padding: 12px;
+     width: 200px;
+  }
+
+  .priority-select-wrapper .priority-flag {
+     display: flex;
+   margin-left: 53px;
+     width: 10px;
+     height: 18px;
+     border-radius: 3px;
+     font-size: 18px;
+     background: var(--prioridade-baixa-bg);
+  }
+
+  .priority-select-wrapper .priority-flag::after {
+     content: "";
+     position: absolute;
+     right: -8px;
+     top: 4px;
+     width: 8px;
+     height: 6px;
+     background: inherit;
+     clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+
+  .priority-select-wrapper.alta .priority-flag {
+     background: var(--prioridade-alta-bg);
+     color: var(--prioridade-alta-texto);
+  }
+
+  .priority-select-wrapper.media .priority-flag {
+     background: var(--prioridade-media-bg);
+     color: var(--prioridade-media-texto);
+  }
+
+  .priority-select-wrapper.baixa .priority-flag {
+     background: var(--prioridade-baixa-bg);
+     color: var(--prioridade-baixa-texto);
+  }
+
+  .priority-select {
+     border: none;
+     outline: none;
+     background: transparent;
+     color: var(--texto-principal);
+     font-family: 'Hanken Grotesk', sans-serif;
+     font-size: 0.95rem;
+     cursor: pointer;
+  }
+
+  .description-task {
+    display: flex;
+    margin-top: 45px;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     gap: 50px;
+  }
+  .description-task-title {
+    width: 500px;
+      height: 80px;
+      text-align: center;
+      font-size: 20px;
+
+  }
+  .description-task-paragraph {
+    width: 580px;
+    height: 220px;
+    text-align: center;
+    font-size: 17px;
+  }
+
+/* ============================= */
+/*    Manager — Header Ações     */
+/* ============================= */
+
+.acoes-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+/* Título editável (contenteditable) */
+.title-h2[contenteditable="true"] {
+  outline: none;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-left: -6px;
+  cursor: text;
+  transition: background 0.2s;
+}
+
+.title-h2[contenteditable="true"]:hover {
+  background-color: rgba(116, 0, 184, 0.06);
+}
+
+.title-h2[contenteditable="true"]:focus {
+  background-color: rgba(116, 0, 184, 0.08);
+  box-shadow: 0 0 0 2px rgba(116, 0, 184, 0.2);
+}
+
+
+/* ============================= */
+/*    Manager — Lista de Tasks   */
+/* ============================= */
+
+.tasks-list {
+  background-color: transparent;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--toggle-bg) transparent;
+}
+
+.tasks-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tasks-list::-webkit-scrollbar-thumb {
+  background: var(--toggle-bg);
+  border-radius: 4px;
+}
+=======
+  
+>>>>>>> origin/dev
