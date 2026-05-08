@@ -2,6 +2,7 @@
 const grid = document.querySelector('#card-grid');
 
 function renderizarCards() { //Mostra todos os cards no grid
+     grid.innerHTML = ''
      let checklists = getAllChecklists(); // Toda vez que tiver conteúdo novo, ela receberá um novo valor
 
      checklists.forEach((checklist) => {
@@ -97,17 +98,20 @@ function renderizarCards() { //Mostra todos os cards no grid
                          <div class="tag-prioridade">${prioridadeAtual}</div> 
                     </div>
                     <div class="submenu-grupo invisible"> 
-                         <button class="submenu-opts" id="editarCard">
+                         <button class="submenu-opts" id="editarCard" data-acao="editar">
                               Editar
                          </button>
-                         <button class="submenu-opts" id="excluirCard">
+                         <button class="submenu-opts" id="excluirCard" data-acao="excluir">
                               Excluir
                          </button>
                     </div>
                </div>
                <div class="card-inferior">
-                    <div class="barra-progresso">
-                         <div class="barra-preenchimento" style="width: ${checklist.progress}%"></div>
+                    <div class="progresso-wrapper">
+                         <span class="progresso-label">${checklist.progress}%</span>
+                         <div class="progresso-track">
+                              <div class="barra-preenchimento" style="width: ${checklist.progress}%"></div>
+                         </div>
                     </div> 
                          <div class="card-data">
                               <span>Última atualização:</span>
@@ -118,25 +122,75 @@ function renderizarCards() { //Mostra todos os cards no grid
      </article>`
           );
 
-          // * submenu
           const cardAtual = grid.lastElementChild;
-          cardAtual.querySelector('.opcoes-icon').addEventListener('click', function () {
+          renderizarProgresso(checklist, cardAtual);
+ 
+          // * Submenu — abrir/fechar
+          cardAtual.querySelector('.opcoes-icon').addEventListener('click', function (event) {
                event.stopPropagation();
                document.querySelectorAll('.submenu-grupo').forEach((submenu) => {
                     submenu.classList.add('invisible');
                });
                cardAtual.querySelector('.submenu-grupo').classList.remove('invisible');
-
-               const idAtual = cardAtual.dataset.id;
-               console.log('ID clicado:', idAtual);
           });
-
-          document.addEventListener('click', (event) => { //fechar submenu ao clicar fora
+ 
+          // * Botão Excluir — abre modal de confirmação
+          cardAtual.querySelector('[data-acao="excluir"]').addEventListener('click', function (event) {
+               event.stopPropagation();
+               const id = cardAtual.dataset.id;
+               const titulo = checklist.title;
+               abrirModalExclusao(id, titulo);
+          });
+ 
+          document.addEventListener('click', () => {
                cardAtual.querySelector('.submenu-grupo').classList.add('invisible');
           });
      });
 };
+ 
+ 
+// =============================================
+//   MODAL DE CONFIRMAÇÃO DE EXCLUSÃO
+// =============================================
+ 
+function abrirModalExclusao(id, titulo) {
+     const modal = document.createElement('div');
+     modal.classList.add('modal-overlay');
+     modal.innerHTML = `
+          <div class="modal-caixa">
+               <h3 class="modal-titulo">Excluir checklist?</h3>
+               <p class="modal-descricao">Tem certeza que deseja excluir <strong>"${titulo}"</strong>? Essa ação não pode ser desfeita.</p>
+               <div class="modal-acoes">
+                    <button class="modal-btn cancelar" id="modal-cancelar">Cancelar</button>
+                    <button class="modal-btn confirmar" id="modal-confirmar">Excluir</button>
+               </div>
+          </div>
+     `;
+ 
+     document.body.appendChild(modal);
 
+     requestAnimationFrame(() => modal.classList.add('visivel'));
+ 
+     modal.querySelector('#modal-cancelar').addEventListener('click', () => {
+          fecharModal(modal);
+     });
+
+     modal.querySelector('#modal-confirmar').addEventListener('click', () => {
+          deleteCheckLists(id);
+          fecharModal(modal);
+          renderizarCards();
+     });
+ 
+     modal.addEventListener('click', (event) => {
+          if (event.target === modal) fecharModal(modal);
+     });
+}
+ 
+function fecharModal(modal) {
+     modal.classList.remove('visivel');
+     modal.addEventListener('transitionend', () => modal.remove(), { once: true });
+}
+ 
 
 // * Botões de filtro
 const filtroTodos = document.querySelector('#filtro-todos');
@@ -173,6 +227,29 @@ filtroAndamento.addEventListener('click', () => {
                card.classList.remove('invisible');
           } else {
                card.classList.add('invisible');
+          }
+     });
+});
+
+// * Search bar
+const searchBar = document.querySelector('#search-bar');
+
+searchBar.addEventListener('keyup', () => {
+     const searchItem = searchBar.value.toLowerCase(); 
+     const todosCards = document.querySelectorAll('.card');
+
+     todosCards.forEach((card) => {
+          const cardTitulo = card.querySelector('.card-titulo').textContent.toLowerCase();
+          const cardTituloMarcado = card.querySelector('.card-titulo').textContent;
+          const cardAtual = card.querySelector('.card-titulo');
+
+          if (cardTitulo.includes(searchItem)) {
+               card.classList.remove('invisible');
+              const textoMarcado =  cardTituloMarcado.replace(new RegExp(searchItem, 'gi'), (match) => `<span style="color: purple">${match}</span>`)
+              card.querySelector('.card-titulo').innerHTML = textoMarcado;
+
+          } else {
+               card.classList.add('invisible')
           }
      });
 });
