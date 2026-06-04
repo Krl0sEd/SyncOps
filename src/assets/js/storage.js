@@ -2,8 +2,7 @@ const STORAGE_KEY = 'syncops_checklists'; // nome para achar os dados dentro do 
 
 function getAllChecklists() {
      const data = localStorage.getItem(STORAGE_KEY);
-     return data ? JSON.parse(data) : []; // Se tiver dados, retorna todos eles. Se não, devolve um array vazia.
-     console.log(data);
+     return data ? JSON.parse(data) : [];
 }
 
 function saveAllChecklists(checklists) {
