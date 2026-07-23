@@ -478,12 +478,12 @@
        cursor: pointer;
        transition: all 0.2s;
        white-space: nowrap;
+       position: relative;
   }
 
   .modal-btn-opcoes:hover {
-       background-color: var(--cor-marca-principal);
-       color: white;
-       border-color: var(--cor-marca-principal);
+           background-color: var(--toggle-bg);
+           color: var(--texto-principal);
   }
 
   .modal-btn-fechar {
