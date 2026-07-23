@@ -1,7 +1,11 @@
 .title-h2 {
-     font-size: var(--text-3xl);
+  font-size: var(--text-3xl);
 }
 
-.title-h4 {
-  color:  #3A3A3A;
+.invisible {
+  display: none;
+}
+
+.title-h2, .title-h3, .title-h4 {
+  color: var(--texto-principal);
 }
